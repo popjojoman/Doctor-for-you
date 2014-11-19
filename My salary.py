@@ -22,9 +22,10 @@ class App(object):
                           .place(relx=0.5, rely=0.8, anchor=CENTER)
 
         self.root.mainloop()
+        
     def open_new(self):
         self.root.destroy()
-        Windows()
+        Choose_pattern()
 
 
 ##    def clicked1(self):
@@ -35,7 +36,7 @@ class App(object):
 ##    def button_click(self):
 ##        tkMessageBox.showwarning("Error", "Bad username and password")
         
-class Windows(object):
+class Choose_pattern(object):
     def __init__(self):
         self.win2 = Tk()
         self.win2.geometry("600x300+500+250")
