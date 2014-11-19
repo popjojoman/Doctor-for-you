@@ -3,12 +3,10 @@ import tkMessageBox
 class App(object):
     def __init__(self):
         self.root = Tk()
-        self.root.geometry("450x250+450+250")
+        self.root.geometry("400x200+600+300")
         self.root.wm_title("My salary")
-       # Label (self.root, text= "Enter your username. : ").place(relx=0.05, rely=0.2)
-       # Label (self.root, text= "Enter your password. : ").place(relx=0.05, rely=0.4)
         
-        Entry(self.root ).place(relx=0.5, rely=0.25, anchor = E)
+
        # self.entryuser = StringVar()
        # Entry(self.root, textvariable=self.entryuser).place(relx=0.5, rely=0.2)
 
@@ -17,11 +15,11 @@ class App(object):
        # Entry(self.root, show='*', textvariable=self.entrypass).place(relx=0.5, rely=0.4)
         Label(self.root, text = 'Please Choose form').place(relx=0.5, rely=0.25, anchor = CENTER)       
 
-
-
         
-        Button(self.root, text = 'Week form', height = 2, width = 25).place(relx=0.5, rely=0.5,anchor = CENTER)
-        Button(self.root, text = 'Month form', height = 2, width = 25).place(relx=0.5, rely=0.75,anchor = CENTER)
+        Button(self.root, text = 'Week form', height = 2, width = 25, command = self.open_week)\
+                          .place(relx=0.5, rely=0.5,anchor = CENTER)
+        Button(self.root, text = 'Month form', height = 2, width = 25, command = self.open_month)\
+                          .place(relx=0.5, rely=0.75,anchor = CENTER)
 
 
        # self.buttontext = StringVar()
@@ -31,9 +29,13 @@ class App(object):
 
         self.root.mainloop()
         
-    def open_new(self):
+    def open_week(self):
         self.root.destroy()
-        Choose_pattern()
+        Pattern_week()
+
+    def open_month(self):
+        self.root.destroy()
+        Pattern_month()
 
 
 ##    def clicked1(self):
@@ -44,10 +46,17 @@ class App(object):
 ##    def button_click(self):
 ##        tkMessageBox.showwarning("Error", "Bad username and password")
         
-class Choose_pattern(object):
+class Pattern_week(object):
     def __init__(self):
-        self.win2 = Tk()
-        self.win2.geometry("600x300+500+250")
+        self.week = Tk()
+        self.week.geometry("600x300+500+250")
+        self.week.wm_title("My salary")
+
+class Pattern_month(object):
+    def __init__(self):
+        self.month = Tk()
+        self.month.geometry("600x300+500+250")
+        self.month.wm_title("My salary")   
 
         
 if __name__ == '__main__':
