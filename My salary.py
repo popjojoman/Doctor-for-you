@@ -8,7 +8,7 @@ class App(object):
        # Label (self.root, text= "Enter your username. : ").place(relx=0.05, rely=0.2)
        # Label (self.root, text= "Enter your password. : ").place(relx=0.05, rely=0.4)
         
-
+        Entry(self.root ).place(relx=0.5, rely=0.25, anchor = E)
        # self.entryuser = StringVar()
        # Entry(self.root, textvariable=self.entryuser).place(relx=0.5, rely=0.2)
 
