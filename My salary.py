@@ -59,11 +59,24 @@ class Pattern_week(object):
             if num == 2:
                 week.hourright = StringVar(week)
                 week.hourright.set(listtime[0])
-                OptionMenu(week,week.hourright, *listtime[0:4]).place(relx=0.19, rely=0.35)
+                OptionMenu(week,week.hourright, *listtime[0:4]).place(relx=0.1, rely=0.35)
             else:
                 week.hourright = StringVar(week)
                 week.hourright.set(listtime[0])
-                OptionMenu(week,week.hourright, *listtime).place(relx=0.19, rely=0.35)
+                OptionMenu(week,week.hourright, *listtime).place(relx=0.1, rely=0.35)
+
+
+
+        def show2(self, index, mode):
+            num2 = week.globalgetvar(self)
+            if num2 == 2:
+                week.hourright2 = StringVar(week)
+                week.hourright2.set(listtime[0])
+                OptionMenu(week,week.hourright2, *listtime[0:4]).place(relx=0.69, rely=0.35)
+            else:
+                week.hourright2 = StringVar(week)
+                week.hourright2.set(listtime[0])
+                OptionMenu(week,week.hourright2, *listtime).place(relx=0.69, rely=0.35)
                 
         
         week.geometry("600x300+500+250")
@@ -78,22 +91,52 @@ class Pattern_week(object):
         self.hourleft.trace('w', show)
         
         self.hourleft.set(listtime[0])
-        OptionMenu(week,self.hourleft, *listtime[0:3]).place(relx=0.1, rely=0.35)
+        OptionMenu(week,self.hourleft, *listtime[0:3]).place(relx=0.01, rely=0.35)
 
         self.hourright = StringVar(week)
         self.hourright.set(listtime[0])
-        OptionMenu(week,self.hourright, *listtime).place(relx=0.19, rely=0.35)
+        OptionMenu(week,self.hourright, *listtime).place(relx=0.1, rely=0.35)
         
         
-        Label(week, text = ':', ).place(relx=0.29, rely=0.36)
+        Label(week, text = ':', ).place(relx=0.2, rely=0.36)
+
+        Label(week, text = 'IN', ).place(relx=0.19, rely=0.26)
 
         self.minuteleft = StringVar(week)
         self.minuteleft.set(listtime[0])
-        OptionMenu(week,self.minuteleft, *listtime[:6]).place(relx=0.32, rely=0.35)
+        OptionMenu(week,self.minuteleft, *listtime[:6]).place(relx=0.23, rely=0.35)
 
         self.minuteright = StringVar(week)
         self.minuteright.set(listtime[0])
-        OptionMenu(week,self.minuteright, *listtime).place(relx=0.41, rely=0.35)
+        OptionMenu(week,self.minuteright, *listtime).place(relx=0.32, rely=0.35)
+
+
+
+
+        
+        self.hourleft2 = StringVar(week)
+        self.hourleft2.trace('w', show2)
+        self.hourleft2.set(listtime[0])
+        OptionMenu(week,self.hourleft2, *listtime[0:3]).place(relx=0.6, rely=0.35)
+
+        self.hourright2 = StringVar(week)
+        self.hourright2.set(listtime[0])
+        OptionMenu(week,self.hourright2, *listtime).place(relx=0.69, rely=0.35)
+        
+        
+        Label(week, text = ':', ).place(relx=0.79, rely=0.36)
+        Label(week, text = 'OUT', ).place(relx=0.77, rely=0.26)
+
+        self.minuteleft2 = StringVar(week)
+        self.minuteleft2.set(listtime[0])
+        OptionMenu(week,self.minuteleft2, *listtime[:6]).place(relx=0.82, rely=0.35)
+
+        self.minuteright2 = StringVar(week)
+        self.minuteright2.set(listtime[0])
+        OptionMenu(week,self.minuteright2, *listtime).place(relx=0.91, rely=0.35)
+
+
+    
         
         week.mainloop()
 
