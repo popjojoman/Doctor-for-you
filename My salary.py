@@ -137,7 +137,7 @@ class Pattern_week(object):
         
         Label(week, text = ':', ).place(relx=0.2, rely=0.36)
 
-        Label(week, text = 'IN', ).place(relx=0.19, rely=0.26)
+        Label(week, text = 'What time do you start your work?', ).place(relx=0.05, rely=0.26)
 
         self.minuteleft = StringVar(week)
         self.minuteleft.set(listtime[0])
@@ -162,7 +162,7 @@ class Pattern_week(object):
         
         
         Label(week, text = ':', ).place(relx=0.79, rely=0.36)
-        Label(week, text = 'OUT', ).place(relx=0.77, rely=0.26)
+        Label(week, text = 'What time do you knock off?', ).place(relx=0.65, rely=0.26)
 
         self.minuteleft2 = StringVar(week)
         self.minuteleft2.set(listtime[0])
