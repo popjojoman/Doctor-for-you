@@ -65,7 +65,8 @@ class Pattern_week(object):
                 OptionMenu(week,week.hourright, *listtime[0:3]).place(relx=0.1, rely=0.35)
             else:
                 week.hourright = StringVar(week)
-                week.hourright.set(listtime[0])
+                week.hourright.set(listtime[8])
+                week.hourright.trace('w', w_mn1)
                 OptionMenu(week,week.hourright, *listtime[8::]).place(relx=0.1, rely=0.35)
                 
         def w_mn1(self, index, mode):
@@ -130,13 +131,13 @@ class Pattern_week(object):
         OptionMenu(week,self.hourleft, *listtime[0:2]).place(relx=0.01, rely=0.35)
 
         self.hourright = StringVar(week)
-        self.hourright.set(listtime[0])
+        self.hourright.set(listtime[8])
         OptionMenu(week,self.hourright, *listtime[8::]).place(relx=0.1, rely=0.35)
         
         
         Label(week, text = ':', ).place(relx=0.2, rely=0.36)
 
-        Label(week, text = 'IN', ).place(relx=0.19, rely=0.26)
+        Label(week, text = 'What time do you start your work?', ).place(relx=0.05, rely=0.26)
 
         self.minuteleft = StringVar(week)
         self.minuteleft.set(listtime[0])
@@ -161,7 +162,7 @@ class Pattern_week(object):
         
         
         Label(week, text = ':', ).place(relx=0.79, rely=0.36)
-        Label(week, text = 'OUT', ).place(relx=0.77, rely=0.26)
+        Label(week, text = 'What time do you knock off?', ).place(relx=0.65, rely=0.26)
 
         self.minuteleft2 = StringVar(week)
         self.minuteleft2.set(listtime[0])
