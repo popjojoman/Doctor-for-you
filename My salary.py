@@ -7,29 +7,17 @@ class App(object):
         self.root.wm_title("My salary")
         
 
-       # self.entryuser = StringVar()
-       # Entry(self.root, textvariable=self.entryuser).place(relx=0.5, rely=0.2)
-
-
-       # self.entrypass = StringVar()
-       # Entry(self.root, w_hrr1='*', textvariable=self.entrypass).place(relx=0.5, rely=0.4)
         Label(self.root, text = 'Please Choose form').place(relx=0.5, rely=0.25, anchor = CENTER)       
 
         
         Button(self.root, text = 'Week form', height = 2, width = 25, command = self.open_before_week)\
                           .place(relx=0.5, rely=0.5,anchor = CENTER)
         Button(self.root, text = 'Month form', height = 2, width = 25, command = self.open_month)\
-                          .place(relx=0.5, rely=0.75,anchor = CENTER)
-
-
-       # self.buttontext = StringVar()
-       # self.buttontext.set("Login")
-       # Button(self.root, textvariable=self.buttontext, command=self.open_new)\
-        #                  .place(relx=0.5, rely=0.8, anchor=CENTER)
-
+                          .place(relx=0.5, rely=0.75,anchor = CENTER)   
 
         self.root.mainloop()
     def open_before_week(self):
+        
         def open_week():
             self.root.destroy()
             ask_work.destroy()
@@ -42,27 +30,10 @@ class App(object):
         Entry(ask_work, textvariable=workday).place(relx=0.3, rely=0.5)
         Button(ask_work, text='OK', command=open_week).place(relx=0.46, rely=0.7)
 
-
-    
-        
-
-        
-        
-        
-    
-
     def open_month(self):
         self.root.destroy()
         Pattern_month()
 
-
-##    def clicked1(self):
-##        input = self.entrytext.get()
-##        result = int(input)*2
-##        self.label.configure(text=result)
-        
-##    def button_click(self):
-##        tkMessageBox.w_hrr1warning("Error", "Bad username and password")
 
 class Pattern_week(object):
     def __init__(self):
@@ -71,8 +42,6 @@ class Pattern_week(object):
         week.wm_title("My salary")
         Label(week, text = 'earnings', )
         listtime = [0,1,2,3,4,5,6,7,8,9]
-        
-
 
 
   
@@ -259,9 +228,6 @@ class Pattern_week(object):
 
         
          
-       
-
-    
         
         week.mainloop()
 
