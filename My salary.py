@@ -9,10 +9,46 @@ class App(object):
     
     def __init__(self):
         
+        
+        
         self.root = Tk()
         self.root.resizable(0,0)
         self.root.geometry("400x200+550+300")
         self.root.wm_title("My salary")
+
+        menubar = Menu(self.root)
+        filemenu = Menu(menubar, tearoff=0)
+        filemenu.add_command(label="New", )
+        filemenu.add_command(label="Open", )
+        filemenu.add_command(label="Save", )
+        filemenu.add_command(label="Save as...", )
+        filemenu.add_command(label="Close", )
+
+        filemenu.add_separator()
+
+        filemenu.add_command(label="Exit", command=self.root.quit)
+        menubar.add_cascade(label="File", menu=filemenu)
+        editmenu = Menu(menubar, tearoff=0)
+        editmenu.add_command(label="Undo", )
+
+        editmenu.add_separator()
+
+        editmenu.add_command(label="Cut", )
+        editmenu.add_command(label="Copy", )
+        editmenu.add_command(label="Paste", )
+        editmenu.add_command(label="Delete", )
+        editmenu.add_command(label="Select All", )
+
+        menubar.add_cascade(label="Edit", menu=editmenu)
+        helpmenu = Menu(menubar, tearoff=0)
+        helpmenu.add_command(label="Help Index", )
+        helpmenu.add_command(label="About...", command=self.about)
+        menubar.add_cascade(label="Help", menu=helpmenu)
+
+        self.root.config(menu=menubar)
+
+
+        
         Label(self.root, fg = "blue", font = "Helvetica 20 bold",text = 'Please Choose Form').place(relx=0.5, rely=0.2, anchor = CENTER)       
 
         week = Button(self.root,font = " Serif 12 bold",fg="midnight blue", text = 'Week form', height = 2, width = 25, command = lambda : self.destroyers(7))
@@ -22,6 +58,20 @@ class App(object):
 
         self.root.mainloop()
 
+   
+    def about(self):
+        self.root.destroy()
+
+        self.new_about = Tk()
+        self.new_about.geometry("500x400+600+300")
+        self.new_about.wm_title("My salary")
+
+        photo = PhotoImage(file="about.gif")
+        Label(self.new_about, image = photo).pack()
+        
+        Button(self.new_about, text= "Back").place(relx=0.4, rely=0.8)
+        
+        
     def destroyers(self, days):
         self.root.destroy()
         Check_days(days)
@@ -36,11 +86,11 @@ class Check_days(object):
         self.ask_work.wm_title("My salary")
 
         if days == 7:
-            Label(self.ask_work, font = "System 14 ", text='How many days do you work in 1 week ? ').place(relx=0.05, rely=0.2)
+            Label(self.ask_work, font = "System 10 ", text='How many days do you work in 1 week ? ').place(relx=0.05, rely=0.2)
             Button(self.ask_work,font = "System 14 ",fg="midnight blue", text='OK', command= lambda : self.open_calculate(days)).place(relx=0.35, rely=0.7)
             Button(self.ask_work,font = "System 14 ",fg="midnight blue", text='Back', command= self.destroyer).place(relx=0.5, rely=0.7)
         else:
-            Label(self.ask_work,font = "System 14 ",  text='How many days do you work in 1 month ? ').place(relx=0.05, rely=0.2)
+            Label(self.ask_work,font = "System 10 ",  text='How many days do you work in 1 month ? ').place(relx=0.05, rely=0.2)
             Button(self.ask_work,font = "System 14 ",fg="midnight blue", text='OK ', command= lambda : self.open_calculate(days)).place(relx=0.35, rely=0.7)
             Button(self.ask_work,font = "System 14 ",fg="midnight blue", text='Back', command= self.destroyer).place(relx=0.5, rely=0.7)
 
@@ -368,10 +418,10 @@ class Conclude(object):
 
         new_win = Tk()
         new_win.resizable(0,0)
-        new_win.geometry("300x250+650+300")
+        new_win.geometry("300x180+620+300")
         new_win.wm_title("My salary")
             
-        Label(new_win,font = "System 14 ", text = 'Please select the number of working days').place(relx=0.038, rely=0.24)
+        Label(new_win,font = "System 10 ", text = 'Please select the number of working days').place(relx=0.038, rely=0.24)
 
         listweek = map(int, xrange(31))
 
@@ -379,7 +429,8 @@ class Conclude(object):
         work_days.set(1)
         OptionMenu(new_win, work_days, *listweek[1:daysl[0]+1]).place(relx=0.4, rely=0.44)
 
-        Button(new_win,font = "System 14 ",fg="midnight blue",text='OK', command = lambda : self.sub_con(wkd, work_days.get(), money, new_win, wee, textconclude)).place(relx=0.43, rely=0.74)
+        Button(new_win,font = "System 14 ",fg="midnight blue",text='OK', command = lambda : self.sub_con(wkd, work_days.get(), money, new_win, wee, textconclude)).place(relx=0.35, rely=0.74)
+        Button(new_win,font = "System 14 ",fg="midnight blue",text='Back', command = lambda : self.back_pattern(new_win, wkd)).place(relx=0.5, rely=0.74)
 
     def sub_con(self, wkds, wkdg, money, nww, wees, textconclude):
 
@@ -397,6 +448,11 @@ class Conclude(object):
             nww.destroy()
             Answer(earn_get_all[0], textconclude)
 
+    def back_pattern(self, nwn, wkdd):
+        nwn.destroy()
+        Pattern(wkdd)
+
+
           
 class Answer(object):
 
@@ -404,7 +460,7 @@ class Answer(object):
         
         self.ans = Tk()
         self.ans.resizable(0,0)
-        self.ans.geometry("350x350+650+300")
+        self.ans.geometry("350x350+600+250")
         self.ans.wm_title("My slary")
 
         photo = PhotoImage(file="goldpack.gif")
@@ -418,7 +474,10 @@ class Answer(object):
         self.ans.mainloop()
     def gomain(self):
         self.ans.destroy()
+    
         App()
+
+        
         
 if __name__ == '__main__':
     App()
